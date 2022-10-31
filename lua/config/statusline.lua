@@ -1,0 +1,38 @@
+local base16 = require('config.statusline-themes.base16')
+local telescope = require('telescope.builtin')
+
+require('lualine').setup {
+    options = {
+        theme = base16,
+        disabled_filetypes = {
+            'NvimTree'
+        },
+        section_separators = { left = '', right = '' },
+        -- section_separators = { left = '', right = '' },
+        -- component_separators = { left = '', right = '' },
+        component_separators = { left = '', right = '' }
+    },
+    sections = {
+        lualine_a = { 'mode' },
+        lualine_b = { { 'filename',
+            ---@diagnostic disable-next-line: unused-local
+            on_click = function(opts)
+                telescope.find_files()
+            end
+        } },
+        lualine_c = {
+            {
+                'diagnostics',
+                ---@diagnostic disable-next-line: unused-local
+                on_click = function(opts)
+                    telescope.diagnostics()
+                end
+            }
+        },
+
+        lualine_x = { 'branch', 'diff' },
+        lualine_y = { 'filetype', 'encoding', 'fileformat' },
+        lualine_z = { 'progress', 'location' },
+    }
+}
+
