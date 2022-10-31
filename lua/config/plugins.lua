@@ -13,10 +13,13 @@ return require('packer').startup(function(use)
     use { 'williamboman/mason-lspconfig.nvim', requires = 'neovim/nvim-lspconfig' }
 
 
-    ------- Text Tools -------
+    ------- Other Tools -------
 
     -- Perform operations on surrounding pairs
     use 'kylechui/nvim-surround'
+
+    -- Open floating terminal
+    use 'voldikss/vim-floaterm'
 
 
     ------- Appearance -------
