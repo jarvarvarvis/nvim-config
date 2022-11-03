@@ -14,12 +14,7 @@ require('lualine').setup {
     },
     sections = {
         lualine_a = { 'mode' },
-        lualine_b = { { 'filename',
-            ---@diagnostic disable-next-line: unused-local
-            on_click = function(opts)
-                telescope.find_files()
-            end
-        } },
+        lualine_b = { 'filename' },
         lualine_c = {
             {
                 'diagnostics',
