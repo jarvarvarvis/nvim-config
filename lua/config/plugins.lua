@@ -22,30 +22,20 @@ return require('packer').startup(function(use)
     use 'voldikss/vim-floaterm'
 
 
-    ------- Appearance -------
+    ------- Search -------
 
-    -- Base16 themes
-    -- use 'chriskempson/base16-vim'
-    use 'RRethy/nvim-base16'
+    -- Telescope, a highly extendable fuzzy finder over lists
+    use {
+        'nvim-telescope/telescope.nvim',
+        tag = '0.1.0',
+        requires =  { 'nvim-lua/plenary.nvim' }
+    }
 
-    -- Color highlighter
-    use { 'rrethy/vim-hexokinase', run = 'make hexokinase' }
-
-    -- which-key to highlight possible key binds when starting to type
-    use 'folke/which-key.nvim'
-
-    -- nvim-tree as a file explorer
-    use 'nvim-tree/nvim-web-devicons'
-    use { 'nvim-tree/nvim-tree.lua', requires = { 'nvim-tree/nvim-web-devicons' } }
-
-    -- Improved vim.ui interface
-    use 'stevearc/dressing.nvim'
-
-    -- Statusline
-    use { 'nvim-lualine/lualine.nvim', requires = { 'nvim-tree/nvim-web-devicons' } }
-
-    -- Tabline
-    use { 'romgrk/barbar.nvim', requires = { 'kyazdani42/nvim-web-devicons' } }
+    -- Manage keymaps and commands in a more organized manner using command_center
+    use {
+        'FeiyouG/command_center.nvim',
+        requires = { 'nvim-telescope/telescope.nvim' }
+    }
 
 
     ------- Programming languages -------
@@ -92,21 +82,32 @@ return require('packer').startup(function(use)
 
     ------- Diagnostics -------
 
+    -- List diagnostics
     use 'onsails/diaglist.nvim'
 
 
-    ------- Search -------
+    ------- Appearance -------
 
-    -- Telescope, a highly extendable fuzzy finder over lists
-    use {
-        'nvim-telescope/telescope.nvim',
-        tag = '0.1.0',
-        requires =  { 'nvim-lua/plenary.nvim' }
-    }
+    -- Base16 themes
+    -- use 'chriskempson/base16-vim'
+    use 'RRethy/nvim-base16'
 
-    -- Manage keymaps and commands in a more organized manner using command_center
-    use {
-        'FeiyouG/command_center.nvim',
-        requires = { 'nvim-telescope/telescope.nvim' }
-    }
+    -- Color highlighter
+    use { 'rrethy/vim-hexokinase', run = 'make hexokinase' }
+
+    -- which-key to highlight possible key binds when starting to type
+    use 'folke/which-key.nvim'
+
+    -- nvim-tree as a file explorer
+    use 'nvim-tree/nvim-web-devicons'
+    use { 'nvim-tree/nvim-tree.lua', requires = { 'nvim-tree/nvim-web-devicons' } }
+
+    -- Improved vim.ui interface
+    use 'stevearc/dressing.nvim'
+
+    -- Statusline
+    use { 'nvim-lualine/lualine.nvim', requires = { 'nvim-tree/nvim-web-devicons' } }
+
+    -- Tabline
+    use { 'romgrk/barbar.nvim', requires = { 'kyazdani42/nvim-web-devicons' } }
 end)
