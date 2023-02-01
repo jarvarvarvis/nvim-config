@@ -21,6 +21,9 @@ return require('packer').startup(function(use)
     -- Open floating terminal
     use 'voldikss/vim-floaterm'
 
+    -- Edit files as root
+    use 'lambdalisue/suda.vim'
+
 
     ------- Search -------
 
