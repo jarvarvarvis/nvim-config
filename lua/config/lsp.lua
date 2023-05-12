@@ -76,8 +76,8 @@ require('lspconfig').pylsp.setup(
     })
 )
 
--- sumneko/lua-language-server
-require('lspconfig').sumneko_lua.setup(
+-- lua_ls language server
+require('lspconfig').lua_ls.setup(
     coq.lsp_ensure_capabilities({
         on_attach = on_attach,
         flags = lsp_flags,
