@@ -40,7 +40,6 @@ require('dressing').setup {
         -- Set to false to disable the vim.ui.input implementation
         enabled = true,
 
-        anchor = "SW",
         border = "rounded",
         relative = "cursor",
     },
