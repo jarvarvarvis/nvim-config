@@ -24,6 +24,9 @@ return require('packer').startup(function(use)
     -- Edit files as root
     use 'lambdalisue/suda.vim'
 
+    -- Discord Rich Presence
+    use 'andweeb/presence.nvim'
+
 
     ------- Search -------
 
