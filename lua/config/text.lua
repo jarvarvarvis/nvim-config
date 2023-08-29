@@ -23,3 +23,6 @@ require('nvim-surround').setup {
         change = "sc",
     }
 }
+
+-- Function to strip trailing whitespace
+vim.api.nvim_create_user_command("StripTrailingWhitespace", [[%s/\s\+$//e]], {})
