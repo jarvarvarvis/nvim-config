@@ -1,14 +1,6 @@
 local wk = require('which-key')
 local telescope = require('telescope.builtin')
 
--- Spelling
-wk.register({
-    ["<space>a"] = {
-        name = "+action",
-        s = { telescope.spell_suggest, "Spelling suggestions" }
-    }
-})
-
 -- Use an on_attach function to only map the following keys after the language
 -- server attaches to the current buffer
 ---@diagnostic disable-next-line: unused-local
