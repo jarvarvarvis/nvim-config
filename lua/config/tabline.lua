@@ -1,34 +1,37 @@
 local wk = require('which-key')
-local command_center = require('command_center')
+local commander = require('commander')
 local noremap = { noremap = true }
 
 -- Register keybinds to control barbar
 wk.register({
     ["<space>"] = {
         b = {
-            name = "+barbar"
+            name = "+barbar",
+            c = { "Close current buffer" },
+            p = { "Pick buffer" },
+            s = { "Pick tabline sort mode" },
         }
     }
 })
 
 local tabline_sort_picker = require('config.tabline-sort-picker')
 
-command_center.add({
+commander.add({
     {
         desc = "Close current buffer",
-        category = "tabline",
+        cat = "tabline",
         cmd = function() vim.cmd('BufferClose') end,
         keys = { "n", "<space>bc", noremap }
     },
     {
         desc = "Pick buffer",
-        category = "tabline",
+        cat = "tabline",
         cmd = function() vim.cmd('BufferPick') end,
         keys = { "n", "<space>bp", noremap }
     },
     {
         desc = "Pick tabline sort mode",
-        category = "tabline",
+        cat = "tabline",
         cmd = function()
             tabline_sort_picker.pick_tabline_sort_mode({
                 ['Buffer Number'] = function() vim.cmd('BufferOrderByBufferNumber') end,

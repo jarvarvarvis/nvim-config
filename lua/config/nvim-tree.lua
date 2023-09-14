@@ -2,7 +2,7 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
 local wk = require('which-key')
-local command_center = require('command_center')
+local commander = require('commander')
 
 local noremap = { noremap = true }
 
@@ -25,20 +25,24 @@ require("nvim-tree").setup {
 
 wk.register({
     ["<space>"] = {
-        t = { name = "+nvim-tree" }
+        t = {
+            name = "+nvim-tree",
+            t = { "Toggle NvimTree" },
+            f = { "Focus NvimTree" },
+        }
     }
 })
 
-command_center.add({
+commander.add({
     {
         desc = "Toggle NvimTree",
-        category = "nvim-tree",
+        cat = "nvim-tree",
         cmd = function() vim.cmd('NvimTreeToggle') end,
         keys = { "n", "<space>tt", noremap }
     },
     {
         desc = "Focus NvimTree",
-        category = "nvim-tree",
+        cat = "nvim-tree",
         cmd = function() vim.cmd('NvimTreeFocus') end,
         keys = { "n", "<space>tf", noremap }
     }

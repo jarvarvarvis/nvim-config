@@ -1,4 +1,5 @@
-local command_center = require('command_center')
+local commander = require('commander')
+local wk = require('which-key')
 
 local noremap = { noremap = true }
 
@@ -11,10 +12,16 @@ vim.g.floaterm_borderchars = "─│─│╭╮╯╰"
 -- Corners
 -- vim.g.floaterm_borderchars = "─│─│┌┐┘└"
 
-command_center.add({
+wk.register({
+    ["<space>"] = {
+        T = { "Open floaterm" }
+    }
+})
+
+commander.add({
     {
         desc = "Open floaterm",
-        category = "floaterm",
+        cat = "floaterm",
         cmd = function() vim.cmd("FloatermToggle") end,
         keys = { "n", "<space>T", noremap }
     }

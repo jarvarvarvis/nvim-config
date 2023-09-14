@@ -62,6 +62,8 @@ lua << EOF
     require('config.discord')          -- load presence.nvim configuration
     require('config.version-control')  -- load configuration of version control plugins
 
+    require('config.commander')        -- load commander.nvim configuration
+
     require('config.diagnostics')      -- load diagnostics related plugin configuration
     require('config.treesitter')       -- load treesitter configuration
     require('config.coq')              -- load COQ configuration before LSP
