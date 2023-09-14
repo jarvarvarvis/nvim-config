@@ -31,5 +31,11 @@ command_center.add({
         category = "find",
         cmd = builtin.oldfiles,
         keys = { "n", "<leader>fr", noremap }
+    },
+    {
+        desc = "Live Grep",
+        category = "find",
+        cmd = builtin.live_grep,
+        keys = { "n", "<leader>fg", noremap }
     }
 }, command_center.REGISTER_ONLY)
