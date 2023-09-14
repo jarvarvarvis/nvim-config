@@ -59,7 +59,8 @@ lua << EOF
     require('config.find')             -- load configuration related to finding stuff 
     require('config.text')             -- load plugins related to text manipulation
     require('config.floaterm')         -- load floaterm configuration
-   
+    require('config.discord')          -- load presence.nvim configuration
+
     require('config.diagnostics')      -- load diagnostics related plugin configuration
     require('config.treesitter')       -- load treesitter configuration
     require('config.coq')              -- load COQ configuration before LSP
