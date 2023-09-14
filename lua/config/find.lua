@@ -42,4 +42,4 @@ commander.add({
         cmd = builtin.live_grep,
         keys = { "n", "<leader>fg", noremap }
     }
-}, commander.REGISTER_ONLY)
+})
