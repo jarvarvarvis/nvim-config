@@ -1,5 +1,7 @@
+local borders = require("config.borders")
+
 require('which-key').setup {
     window = {
-        border = "single"
+        border = borders.border
     }
 }

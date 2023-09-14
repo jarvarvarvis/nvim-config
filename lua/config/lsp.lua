@@ -51,29 +51,20 @@ local on_attach = function(client, bufnr)
     }, bufopts)
 end
 
--- Configure border theme
-local border = {
-    { "╭", "FloatBorder" },
-    { "─", "FloatBorder" },
-    { "╮", "FloatBorder" },
-    { "│", "FloatBorder" },
-    { "╯", "FloatBorder" },
-    { "─", "FloatBorder" },
-    { "╰", "FloatBorder" },
-    { "│", "FloatBorder" },
-}
+-- Configure borders
+local borders = require("config.borders")
 
 -- Configure border in floating previews (hover, signatureHelp)
 local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
 function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
     opts = opts or {}
-    opts.border = opts.border or border
+    opts.border = opts.border or borders.border
     return orig_util_open_floating_preview(contents, syntax, opts, ...)
 end
 
 -- Configure LspInfo border
 require('lspconfig.ui.windows').default_options = {
-    border = border,
+    border = borders.border,
 }
 
 -- Configure language servers
