@@ -27,6 +27,9 @@ return require('packer').startup(function(use)
     -- Discord Rich Presence
     use 'andweeb/presence.nvim'
 
+    -- Git decorations
+    use 'lewis6991/gitsigns.nvim'
+
 
     ------- Search -------
 
