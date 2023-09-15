@@ -56,6 +56,7 @@ lua << EOF
                                        -- mappings for every other plugin
    
     ---- Functionality
+    require('config.filetypes')        -- load configuration for filetype detections
     require('config.find')             -- load configuration related to finding stuff 
     require('config.text')             -- load plugins related to text manipulation
     require('config.floaterm')         -- load floaterm configuration
