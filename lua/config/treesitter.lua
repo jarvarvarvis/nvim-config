@@ -4,5 +4,8 @@ require('nvim-treesitter.configs').setup {
         "lua",
         "rust",
         "python",
+    },
+    highlight = {
+        enable = true
     }
 }
