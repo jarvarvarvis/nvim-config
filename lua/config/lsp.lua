@@ -52,7 +52,7 @@ local on_attach = function(client, bufnr)
 end
 
 -- Configure borders
-local borders = require("config.borders")
+local borders = require('config.borders')
 
 -- Configure border in floating previews (hover, signatureHelp)
 local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
@@ -121,7 +121,7 @@ require('config.languages.rust-config').setup(
 require('lsp_signature').setup {
     bind = true,
     handler_opts = {
-        border = "rounded"
+        border = borders.border
     }
 }
 

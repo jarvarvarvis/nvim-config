@@ -34,13 +34,15 @@ require('base16-colorscheme').setup({
 -- Setup hexokinase
 vim.g.Hexokinase_highlighters = {'backgroundfull'}
 
+local borders = require('config.borders')
+
 -- Setup dressing.nvim
 require('dressing').setup {
     input = {
         -- Set to false to disable the vim.ui.input implementation
         enabled = true,
 
-        border = "rounded",
+        border = borders.border,
         relative = "cursor",
     },
     select = {
