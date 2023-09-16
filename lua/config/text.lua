@@ -26,3 +26,7 @@ require('nvim-surround').setup {
 
 -- Function to strip trailing whitespace
 vim.api.nvim_create_user_command("StripTrailingWhitespace", [[%s/\s\+$//e]], {})
+
+vim.keymap.set("n", "<M-n>", function()
+    vim.cmd("noh")
+end)
