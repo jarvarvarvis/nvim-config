@@ -34,16 +34,11 @@ syntax on                       " Always enable syntax highlighting
 
 filetype plugin on
 
-" Neovide-specific configurations
-if exists('g:neovide')
-    set guifont=Source\ Code\ Pro:h7.5
-    let g:transparency = 1.0
-    let g:neovide_transparency = 1.0
-   
-    let g:neovide_scroll_animation_length = 0.2
-endif
-
 lua << EOF
+    if vim.g.neovide then
+        require('config.neovide')      -- load neovide configuration if neovim was started inside neovide
+    end
+
     require('config.plugins')          -- load plugin configuration
   
     ---- Appearance
@@ -70,5 +65,4 @@ lua << EOF
     require('config.coq')              -- load COQ configuration before LSP
     require('config.lsp')              -- load LSP configuration
     require('config.mason')            -- load mason configuration
-    
 EOF

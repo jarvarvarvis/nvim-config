@@ -1,16 +1,27 @@
-local base16 = require('config.statusline-themes.base16')
 local telescope = require('telescope.builtin')
 
 require('lualine').setup {
     options = {
-        theme = base16,
+        theme = "base16",
         disabled_filetypes = {
             'NvimTree'
         },
-        section_separators = { left = '', right = '' },
+        -- component_separators = { left = '', right = '' },
         -- section_separators = { left = '', right = '' },
+
         -- component_separators = { left = '', right = '' },
-        component_separators = { left = '', right = '' }
+        -- section_separators = { left = '', right = '' },
+
+        -- section_separators = { left = '', right = '' },
+        -- component_separators = { left = '', right = '' }
+
+        -- component_separators = { left = '', right = '' },
+        -- section_separators = { left = '', right = '' },
+
+        -- component_separators = { left = '', right = '' },
+        section_separators = { left = '', right = '' },
+
+        component_separators = { left = '', right = '' },
     },
     sections = {
         lualine_a = { 'mode' },

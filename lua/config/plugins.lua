@@ -98,7 +98,6 @@ return require('packer').startup(function(use)
     ------- Appearance -------
 
     -- Base16 themes
-    -- use 'chriskempson/base16-vim'
     use 'RRethy/nvim-base16'
 
     -- Color highlighter
