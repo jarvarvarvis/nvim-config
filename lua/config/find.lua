@@ -5,8 +5,7 @@ local commander = require('commander')
 local noremap = { noremap = true }
 
 wk.register({
-    -- <leader> is the \ key
-    ["<leader>"] = {
+    ["<space>"] = {
         f = {
             name = "+find",
             f = { "Find files" },
@@ -22,24 +21,24 @@ commander.add({
         desc = "Find files",
         cat = "find",
         cmd = builtin.find_files,
-        keys = { "n", "<leader>ff", noremap }
+        keys = { "n", "<space>ff", noremap }
     },
     {
         desc = "Find buffers",
         cat = "find",
         cmd = builtin.buffers,
-        keys = { "n", "<leader>fb", noremap }
+        keys = { "n", "<space>fb", noremap }
     },
     {
         desc = "Recent files",
         cat = "find",
         cmd = builtin.oldfiles,
-        keys = { "n", "<leader>fr", noremap }
+        keys = { "n", "<space>fr", noremap }
     },
     {
         desc = "Live Grep",
         cat = "find",
         cmd = builtin.live_grep,
-        keys = { "n", "<leader>fg", noremap }
+        keys = { "n", "<space>fg", noremap }
     }
 })
