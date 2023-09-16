@@ -30,6 +30,9 @@ return require('packer').startup(function(use)
     -- Git decorations
     use 'lewis6991/gitsigns.nvim'
 
+    -- Git integration
+    use 'tpope/vim-fugitive'
+
 
     ------- Search -------
 
