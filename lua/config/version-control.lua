@@ -1,4 +1,5 @@
 local borders = require("config.borders")
+local wk = require('which-key')
 
 require('gitsigns').setup {
     signs                        = {
@@ -41,3 +42,54 @@ require('gitsigns').setup {
         enable = false
     },
 }
+
+wk.register({
+    ["<space>G"] = {
+        name = "+gitsigns",
+
+        s = {
+            function()
+                vim.cmd("Gitsigns stage_hunk")
+            end,
+            "Stage hunk",
+        },
+        r = {
+            function()
+                vim.cmd("Gitsigns reset_hunk")
+            end,
+            "Reset hunk",
+        },
+        u = {
+            function()
+                vim.cmd("Gitsigns undo_stage_hunk")
+            end,
+            "Undo stage hunk",
+        },
+
+        S = {
+            function()
+                vim.cmd("Gitsigns stage_buffer")
+            end,
+            "Stage buffer",
+        },
+        R = {
+            function()
+                vim.cmd("Gitsigns reset_buffer")
+            end,
+            "Reset buffer",
+        },
+        U = {
+            function()
+                vim.cmd("Gitsigns reset_buffer_index")
+            end,
+            "Undo stage buffer",
+        },
+
+        G = {
+            function()
+                vim.cmd("Git")
+            end,
+            "Vim fugitive"
+        }
+    }
+})
