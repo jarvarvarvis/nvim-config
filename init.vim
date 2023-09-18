@@ -43,7 +43,7 @@ lua << EOF
   
     ---- Appearance
     require('config.telescope')        -- load telescope configuration
-    require('config.nvim-tree')        -- load nvim-tree configuration
+    require('config.file-manager')     -- load file manager configuration
     require('config.tabline')          -- load tabline-related configuration
     require('config.statusline')       -- load galaxybar configuration
     require('config.appearance')       -- load appearance configuration

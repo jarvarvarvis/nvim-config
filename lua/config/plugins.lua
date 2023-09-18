@@ -40,7 +40,7 @@ return require('packer').startup(function(use)
     use {
         'nvim-telescope/telescope.nvim',
         tag = '0.1.0',
-        requires =  { 'nvim-lua/plenary.nvim' }
+        requires = { 'nvim-lua/plenary.nvim' }
     }
 
     -- Manage keymaps and commands in a more organized manner using commander.nvim
@@ -60,7 +60,7 @@ return require('packer').startup(function(use)
         'neovim/nvim-lspconfig',
         requires = {
             -- Coq (completions)
-            { 'ms-jpq/coq_nvim', branch = 'coq' },
+            { 'ms-jpq/coq_nvim',      branch = 'coq' },
 
             -- 9000+ Snippets
             { 'ms-jpq/coq.artifacts', branch = 'artifacts' }
@@ -70,7 +70,7 @@ return require('packer').startup(function(use)
     -- Automatically highlight uses of the symbol under the cursor
     use 'RRethy/vim-illuminate'
 
-    -- Show a lightbulb in the sign column when a textDocument/codeAction 
+    -- Show a lightbulb in the sign column when a textDocument/codeAction
     -- is available
     use 'kosayoda/nvim-lightbulb'
 
@@ -84,7 +84,7 @@ return require('packer').startup(function(use)
     -- Apply highlight group to unused variables and functions
     use 'Kasama/nvim-custom-diagnostic-highlight'
 
-    -- Filetype support for eww configuration language yuck 
+    -- Filetype support for eww configuration language yuck
     -- (https://github.com/elkowar/eww/)
     use 'elkowar/yuck.vim'
 
@@ -109,10 +109,16 @@ return require('packer').startup(function(use)
     -- which-key to highlight possible key binds when starting to type
     use 'folke/which-key.nvim'
 
-    -- nvim-tree as a file explorer
-    use 'nvim-tree/nvim-web-devicons'
-    use { 'nvim-tree/nvim-tree.lua', requires = { 'nvim-tree/nvim-web-devicons' } }
-
+    -- neo-tree as a file explorer
+    use {
+        "nvim-neo-tree/neo-tree.nvim",
+        branch = "v3.x",
+        requires = {
+            "nvim-lua/plenary.nvim",
+            "nvim-tree/nvim-web-devicons",
+            "MunifTanjim/nui.nvim",
+        }
+    }
     -- Improved vim.ui interface
     use 'stevearc/dressing.nvim'
 

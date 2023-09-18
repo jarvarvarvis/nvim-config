@@ -54,8 +54,8 @@ require('illuminate').configure {
 
     filetypes_overrides = {},
     filetypes_denylist = {
-        -- Disable illuminate in NvimTree window
-        'NvimTree',
+        -- Disable illuminate in neo-tree window
+        'neo-tree',
 
         -- Disable illuminate in Telescope prompt windows
         'TelescopePrompt',

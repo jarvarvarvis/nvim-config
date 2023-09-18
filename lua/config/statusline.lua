@@ -4,7 +4,7 @@ require('lualine').setup {
     options = {
         theme = "base16",
         disabled_filetypes = {
-            'NvimTree'
+            'neo-tree'
         },
         -- component_separators = { left = '', right = '' },
         -- section_separators = { left = '', right = '' },
