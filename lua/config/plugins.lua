@@ -33,6 +33,9 @@ return require('packer').startup(function(use)
     -- Git integration
     use 'tpope/vim-fugitive'
 
+    -- Automatic pair insertion
+    use 'windwp/nvim-autopairs'
+
 
     ------- Search -------
 

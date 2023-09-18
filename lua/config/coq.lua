@@ -2,7 +2,7 @@ vim.g.coq_settings = {
     auto_start = 'shut-up',
     clients = {
         tree_sitter = {
-            enabled = false
+            enabled = true
         },
         paths = { preview_lines = 3 }
     },
@@ -15,11 +15,6 @@ vim.g.coq_settings = {
         smart = true
     },
     keymap = {
-        recommended = true,
-        manual_complete = "<c-space>",
-        bigger_preview = "<c-k>"
+        recommended = false,
     }
 }
-
----@diagnostic disable: unused-local
-local coq = require('coq')

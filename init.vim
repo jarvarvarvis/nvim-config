@@ -53,7 +53,6 @@ lua << EOF
     ---- Functionality
     require('config.filetypes')        -- load configuration for filetype detections
     require('config.find')             -- load configuration related to finding stuff 
-    require('config.text')             -- load plugins related to text manipulation
     
     require('config.floaterm')         -- load floaterm configuration
 
@@ -66,4 +65,6 @@ lua << EOF
     require('config.coq')              -- load COQ configuration before LSP
     require('config.lsp')              -- load LSP configuration
     require('config.mason')            -- load mason configuration
+    
+    require('config.text')             -- load plugins related to text manipulation
 EOF

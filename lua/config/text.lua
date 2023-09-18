@@ -24,6 +24,49 @@ require('nvim-surround').setup {
     }
 }
 
+-- Setup nvim-autopairs with coq_nvim compatibility
+local remap = vim.api.nvim_set_keymap
+local autopairs = require('nvim-autopairs')
+
+autopairs.setup({
+    check_ts = true,
+    disable_filetype = { "TelescopePrompt", "vim" },
+    map_bs = false,
+    map_cr = false
+})
+
+-- these mappings are coq recommended mappings unrelated to nvim-autopairs
+local remap_args = { expr = true, noremap = true }
+remap('i', '<esc>', [[pumvisible() ? "<c-e><esc>" : "<esc>"]], remap_args)
+remap('i', '<c-c>', [[pumvisible() ? "<c-e><c-c>" : "<c-c>"]], remap_args)
+remap('i', '<tab>', [[pumvisible() ? "<c-n>" : "<tab>"]], remap_args)
+remap('i', '<s-tab>', [[pumvisible() ? "<c-p>" : "<bs>"]], remap_args)
+
+-- skip it, if you use another global object
+_G.MUtils = {}
+
+MUtils.CR = function()
+    if vim.fn.pumvisible() ~= 0 then
+        if vim.fn.complete_info({ 'selected' }).selected ~= -1 then
+            return autopairs.esc('<c-y>')
+        else
+            return autopairs.esc('<c-e>') .. autopairs.autopairs_cr()
+        end
+    else
+        return autopairs.autopairs_cr()
+    end
+end
+remap('i', '<cr>', 'v:lua.MUtils.CR()', remap_args)
+
+MUtils.BS = function()
+    if vim.fn.pumvisible() ~= 0 and vim.fn.complete_info({ 'mode' }).mode == 'eval' then
+        return autopairs.esc('<c-e>') .. autopairs.autopairs_bs()
+    else
+        return autopairs.autopairs_bs()
+    end
+end
+remap('i', '<bs>', 'v:lua.MUtils.BS()', remap_args)
+
 -- Function to strip trailing whitespace
 vim.api.nvim_create_user_command("StripTrailingWhitespace", [[%s/\s\+$//e]], {})
 
