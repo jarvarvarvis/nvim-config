@@ -43,12 +43,6 @@ return require('packer').startup(function(use)
         requires = { 'nvim-lua/plenary.nvim' }
     }
 
-    -- Manage keymaps and commands in a more organized manner using commander.nvim
-    use {
-        'FeiyouG/commander.nvim',
-        requires = { 'nvim-telescope/telescope.nvim' }
-    }
-
 
     ------- Programming languages -------
 

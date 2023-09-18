@@ -55,7 +55,6 @@ lua << EOF
     require('config.find')             -- load configuration related to finding stuff 
     require('config.text')             -- load plugins related to text manipulation
     
-    require('config.commander')        -- load commander.nvim configuration
     require('config.floaterm')         -- load floaterm configuration
 
     require('config.discord')          -- load presence.nvim configuration
