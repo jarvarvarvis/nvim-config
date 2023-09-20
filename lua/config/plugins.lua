@@ -10,7 +10,10 @@ return require('packer').startup(function(use)
     use 'williamboman/mason.nvim'
 
     -- Integration of mason.nvim with nvim-lspconfig
-    use { 'williamboman/mason-lspconfig.nvim', requires = 'neovim/nvim-lspconfig' }
+    use {
+        'williamboman/mason-lspconfig.nvim',
+        requires = 'neovim/nvim-lspconfig'
+    }
 
 
     ------- Other Tools -------
@@ -50,7 +53,10 @@ return require('packer').startup(function(use)
     ------- Programming languages -------
 
     -- Treesitter for better parsing
-    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+    use {
+        'nvim-treesitter/nvim-treesitter',
+        run = ':TSUpdate'
+    }
 
     -- LSP Configuration
     use {
@@ -101,7 +107,10 @@ return require('packer').startup(function(use)
     use 'RRethy/nvim-base16'
 
     -- Color highlighter
-    use { 'rrethy/vim-hexokinase', run = 'make hexokinase' }
+    use {
+        'rrethy/vim-hexokinase',
+        run = 'make hexokinase'
+    }
 
     -- which-key to highlight possible key binds when starting to type
     use 'folke/which-key.nvim'
@@ -120,8 +129,14 @@ return require('packer').startup(function(use)
     use 'stevearc/dressing.nvim'
 
     -- Statusline
-    use { 'nvim-lualine/lualine.nvim', requires = { 'nvim-tree/nvim-web-devicons' } }
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'nvim-tree/nvim-web-devicons' }
+    }
 
     -- Tabline
-    use { 'romgrk/barbar.nvim', requires = { 'kyazdani42/nvim-web-devicons' } }
+    use {
+        'romgrk/barbar.nvim',
+        requires = { 'kyazdani42/nvim-web-devicons' }
+    }
 end)
