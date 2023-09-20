@@ -12,7 +12,7 @@ return require('packer').startup(function(use)
     -- Integration of mason.nvim with nvim-lspconfig
     use {
         'williamboman/mason-lspconfig.nvim',
-        requires = 'neovim/nvim-lspconfig'
+        requires = { 'neovim/nvim-lspconfig' }
     }
 
 
