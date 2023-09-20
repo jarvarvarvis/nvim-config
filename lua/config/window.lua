@@ -15,22 +15,28 @@ require('windows').setup {
     },
 }
 
+local wk = require('which-key')
 
-vim.keymap.set('n', '<C-w>z', function()
-    vim.cmd('WindowsMaximize')
-end)
-
-vim.keymap.set('n', '<C-w>_', function()
-    vim.cmd('WindowsMaximizeVertically')
-end)
-
-vim.keymap.set('n', '<C-w>|', function()
-    vim.cmd('WindowsMaximizeHorizontally')
-end)
-
-vim.keymap.set('n', '<C-w>=', function()
-    vim.cmd('WindowsEqualize')
-end)
+wk.register({
+    ["<C-w>"] = {
+        z = {
+            function() vim.cmd('WindowsMaximize') end,
+            "Maximize window"
+        },
+        ["_"] = {
+            function() vim.cmd('WindowsMaximizeVertically') end,
+            "Maximize window vertically"
+        },
+        ["|"] = {
+            function() vim.cmd('WindowsMaximizeHorizontally') end,
+            "Maximize window horizontally"
+        },
+        ["="] = {
+            function() vim.cmd('WindowsEqualize') end,
+            "Equalize windows"
+        }
+    }
+})
 
 -- Configure nvim-window-picker
 local window_picker = require('window-picker')
@@ -156,11 +162,17 @@ window_picker.setup {
 }
 
 -- Pick a window
-local remap_args = { noremap = false }
-vim.keymap.set('n', '<C-w>p', function()
-    local picked_window_id = window_picker.pick_window()
-    if picked_window_id ~= nil then
-        print("Jumping to window " .. picked_window_id)
-        vim.api.nvim_set_current_win(picked_window_id)
-    end
-end, remap_args)
+wk.register({
+    ["<C-w>"] = {
+        p = {
+            function()
+                local picked_window_id = window_picker.pick_window()
+                if picked_window_id ~= nil then
+                    print("Jumping to window " .. picked_window_id)
+                    vim.api.nvim_set_current_win(picked_window_id)
+                end
+            end,
+            "Pick window"
+        },
+    }
+})
