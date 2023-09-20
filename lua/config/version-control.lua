@@ -103,6 +103,12 @@ wk.register({
                 vim.cmd("Git")
             end,
             "Vim fugitive"
+        },
+        l = {
+            function()
+                vim.cmd("Git log --decorate")
+            end,
+            "Show git log"
         }
     }
 })
