@@ -66,5 +66,6 @@ lua << EOF
     require('config.lsp')              -- load LSP configuration
     require('config.mason')            -- load mason configuration
     
-    require('config.text')             -- load plugins related to text manipulation
+    require('config.text')             -- load config related to text manipulation
+    require('config.window')           -- load config related to window manipulation
 EOF

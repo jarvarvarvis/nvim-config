@@ -39,6 +39,12 @@ return require('packer').startup(function(use)
     -- Automatic pair insertion
     use 'windwp/nvim-autopairs'
 
+    -- Automatic window resizing
+    use {
+        'anuvyklack/windows.nvim',
+        requires = { 'anuvyklack/middleclass' }
+    }
+
 
     ------- Search -------
 
