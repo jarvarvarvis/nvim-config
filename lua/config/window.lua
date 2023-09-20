@@ -13,3 +13,20 @@ require('windows').setup {
         filetype = { "NvimTree", "neo-tree" }
     },
 }
+
+
+vim.keymap.set('n', '<C-w>z', function()
+    vim.cmd('WindowsMaximize')
+end)
+
+vim.keymap.set('n', '<C-w>_', function()
+    vim.cmd('WindowsMaximizeVertically')
+end)
+
+vim.keymap.set('n', '<C-w>|', function()
+    vim.cmd('WindowsMaximizeHorizontally')
+end)
+
+vim.keymap.set('n', '<C-w>=', function()
+    vim.cmd('WindowsEqualize')
+end)
