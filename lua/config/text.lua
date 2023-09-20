@@ -25,7 +25,6 @@ require('nvim-surround').setup {
 }
 
 -- Setup nvim-autopairs with coq_nvim compatibility
-local remap = vim.api.nvim_set_keymap
 local autopairs = require('nvim-autopairs')
 
 autopairs.setup({
@@ -37,10 +36,18 @@ autopairs.setup({
 
 -- these mappings are coq recommended mappings unrelated to nvim-autopairs
 local remap_args = { expr = true, noremap = true }
-remap('i', '<esc>', [[pumvisible() ? "<c-e><esc>" : "<esc>"]], remap_args)
-remap('i', '<c-c>', [[pumvisible() ? "<c-e><c-c>" : "<c-c>"]], remap_args)
-remap('i', '<tab>', [[pumvisible() ? "<c-n>" : "<tab>"]], remap_args)
-remap('i', '<s-tab>', [[pumvisible() ? "<c-p>" : "<bs>"]], remap_args)
+vim.api.nvim_set_keymap(
+    'i', '<esc>', [[pumvisible() ? "<c-e><esc>" : "<esc>"]], remap_args
+)
+vim.api.nvim_set_keymap(
+    'i', '<c-c>', [[pumvisible() ? "<c-e><c-c>" : "<c-c>"]], remap_args
+)
+vim.api.nvim_set_keymap(
+    'i', '<tab>', [[pumvisible() ? "<c-n>" : "<tab>"]], remap_args
+)
+vim.api.nvim_set_keymap(
+    'i', '<s-tab>', [[pumvisible() ? "<c-p>" : "<bs>"]], remap_args
+)
 
 -- skip it, if you use another global object
 _G.MUtils = {}
@@ -56,7 +63,7 @@ MUtils.CR = function()
         return autopairs.autopairs_cr()
     end
 end
-remap('i', '<cr>', 'v:lua.MUtils.CR()', remap_args)
+vim.api.nvim_set_keymap('i', '<cr>', 'v:lua.MUtils.CR()', remap_args)
 
 MUtils.BS = function()
     if vim.fn.pumvisible() ~= 0 and vim.fn.complete_info({ 'mode' }).mode == 'eval' then
@@ -65,7 +72,7 @@ MUtils.BS = function()
         return autopairs.autopairs_bs()
     end
 end
-remap('i', '<bs>', 'v:lua.MUtils.BS()', remap_args)
+vim.api.nvim_set_keymap('i', '<bs>', 'v:lua.MUtils.BS()', remap_args)
 
 -- Function to strip trailing whitespace
 vim.api.nvim_create_user_command("StripTrailingWhitespace", [[%s/\s\+$//e]], {})

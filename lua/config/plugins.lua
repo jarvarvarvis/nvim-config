@@ -46,6 +46,12 @@ return require('packer').startup(function(use)
     }
 
 
+    -- Window picker
+    use {
+        's1n7ax/nvim-window-picker',
+        tag = 'v2.*'
+    }
+
     ------- Search -------
 
     -- Telescope, a highly extendable fuzzy finder over lists
