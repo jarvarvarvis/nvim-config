@@ -8,14 +8,14 @@ local action_state = require('telescope.actions.state')
 
 local pick_tabline_sort_mode = function(opts)
     -- Get arguments
-    op_map = opts.op_map
-    remaining_opts = opts.remaining_opts or {}
+    local op_map = opts.op_map
+    local remaining_opts = opts.remaining_opts or {}
 
     -- Collect results
     local results = {}
     local n = 0
 
-    for key, value in pairs(op_map) do
+    for key, _ in pairs(op_map) do
         n = n + 1
         results[n] = key
     end
@@ -27,7 +27,7 @@ local pick_tabline_sort_mode = function(opts)
             results = results
         },
         sorter = conf.generic_sorter(remaining_opts),
-        attach_mappings = function(prompt_bufnr, map)
+        attach_mappings = function(prompt_bufnr, _)
             actions.select_default:replace(function()
                 actions.close(prompt_bufnr)
                 local selection = action_state.get_selected_entry()
