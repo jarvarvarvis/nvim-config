@@ -2,15 +2,12 @@
 -- This fixes some issues with telescopes borders and rounded corners
 require('base16-colorscheme').with_config({
     telescope = false,
-    indentblankline = true,
-    notify = true,
-    ts_rainbow = true,
-    cmp = true,
+    cmp = false,
     illuminate = true,
 })
 
 -- Load colorscheme
-vim.cmd('colorscheme base16-catppuccin')
+vim.cmd('colorscheme base16-tomorrow-night')
 
 -- Setup hexokinase
 vim.g.Hexokinase_highlighters = {'backgroundfull'}
@@ -36,14 +33,6 @@ require('dressing').setup {
         -- Don't trim trailing ':' from prompt
         trim_prompt = false
     }
-}
-
--- Setup lsp-colors
-require('lsp-colors').setup {
-    Error = "#cc6666",
-    Warning = "#f0c674",
-    Information = "#81a2be",
-    Hint = "#8abeb7",
 }
 
 -- Setup illuminate

@@ -68,7 +68,7 @@ require('lspconfig.ui.windows').default_options = {
 }
 
 -- Configure language servers
-local coq = require('coq')
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 local lsp_flags = {
     -- This is the default in Nvim 0.7+
@@ -76,44 +76,39 @@ local lsp_flags = {
 }
 
 -- python-lsp/python-language-server
-require('lspconfig').pylsp.setup(
-    coq.lsp_ensure_capabilities({
-        on_attach = on_attach,
-        flags = lsp_flags,
-    })
-)
-
--- lua_ls language server
-require('lspconfig').lua_ls.setup(
-    coq.lsp_ensure_capabilities({
-        on_attach = on_attach,
-        flags = lsp_flags,
-    })
-)
+require('lspconfig').pylsp.setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
+    flags = lsp_flags,
+})
 
 -- vimls language server
-require('lspconfig').vimls.setup(
-    coq.lsp_ensure_capabilities({
-        on_attach = on_attach,
-        flags = lsp_flags,
-    })
-)
+require('lspconfig').vimls.setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
+    flags = lsp_flags,
+})
 
--- clangd
-require('lspconfig').clangd.setup(
-    coq.lsp_ensure_capabilities({
-        on_attach = on_attach,
-        flags = lsp_flags,
-    })
-)
+-- clangd language server
+require('lspconfig').clangd.setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
+    flags = lsp_flags,
+})
+
+-- lua_ls language server
+require('config.languages.lua').setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
+    flags = lsp_flags,
+})
 
 -- Wrapper for rust-tools which sets up the rust-language-server internally
-require('config.languages.rust-config').setup(
-    coq.lsp_ensure_capabilities({
-        on_attach = on_attach,
-        flags = lsp_flags,
-    })
-)
+require('config.languages.rust').setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
+    flags = lsp_flags,
+})
 
 
 
@@ -123,6 +118,14 @@ require('lsp_signature').setup {
     handler_opts = {
         border = borders.border
     }
+}
+
+-- Setup lsp-colors
+require('lsp-colors').setup {
+    Error = "#cc6666",
+    Warning = "#f0c674",
+    Information = "#81a2be",
+    Hint = "#8abeb7",
 }
 
 -- Setup nvim-custom-diagnostic-highlight plugin

@@ -15,7 +15,6 @@ return require('packer').startup(function(use)
         requires = { 'neovim/nvim-lspconfig' }
     }
 
-
     ------- Other Tools -------
 
     -- Perform operations on surrounding pairs
@@ -71,16 +70,18 @@ return require('packer').startup(function(use)
     }
 
     -- LSP Configuration
-    use {
-        'neovim/nvim-lspconfig',
-        requires = {
-            -- Coq (completions)
-            { 'ms-jpq/coq_nvim',      branch = 'coq' },
+    use 'neovim/nvim-lspconfig'
 
-            -- 9000+ Snippets
-            { 'ms-jpq/coq.artifacts', branch = 'artifacts' }
-        }
-    }
+    -- Source completions
+    use 'hrsh7th/cmp-nvim-lsp'
+    use 'hrsh7th/cmp-buffer'
+    use 'hrsh7th/cmp-path'
+    use 'hrsh7th/cmp-cmdline'
+    use 'hrsh7th/nvim-cmp'
+
+    -- Snippets
+    use 'L3MON4D3/LuaSnip'
+    use 'saadparwaiz1/cmp_luasnip'
 
     -- Automatically highlight uses of the symbol under the cursor
     use 'RRethy/vim-illuminate'
@@ -129,12 +130,12 @@ return require('packer').startup(function(use)
 
     -- neo-tree as a file explorer
     use {
-        "nvim-neo-tree/neo-tree.nvim",
-        branch = "v3.x",
+        'nvim-neo-tree/neo-tree.nvim',
+        branch = 'v3.x',
         requires = {
-            "nvim-lua/plenary.nvim",
-            "nvim-tree/nvim-web-devicons",
-            "MunifTanjim/nui.nvim",
+            'nvim-lua/plenary.nvim',
+            'nvim-tree/nvim-web-devicons',
+            'MunifTanjim/nui.nvim',
         }
     }
     -- Improved vim.ui interface
