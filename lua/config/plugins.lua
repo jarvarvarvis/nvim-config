@@ -44,7 +44,6 @@ return require('packer').startup(function(use)
         requires = { 'anuvyklack/middleclass' }
     }
 
-
     -- Window picker
     use {
         's1n7ax/nvim-window-picker',

@@ -68,47 +68,29 @@ require('lspconfig.ui.windows').default_options = {
 }
 
 -- Configure language servers
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
-
-local lsp_flags = {
-    -- This is the default in Nvim 0.7+
-    debounce_text_changes = 150,
+local lsp_setup_opts = {
+    on_attach = on_attach,
+    capabilities = require('cmp_nvim_lsp').default_capabilities(),
+    flags = {
+        -- This is the default in Nvim 0.7+
+        debounce_text_changes = 150,
+    }
 }
 
--- python-lsp/python-language-server
-require('lspconfig').pylsp.setup({
-    on_attach = on_attach,
-    capabilities = capabilities,
-    flags = lsp_flags,
-})
+-- pyright language server
+require('config.language-servers.pyright').setup(lsp_setup_opts)
 
 -- vimls language server
-require('lspconfig').vimls.setup({
-    on_attach = on_attach,
-    capabilities = capabilities,
-    flags = lsp_flags,
-})
+require('config.language-servers.vimls').setup(lsp_setup_opts)
 
 -- clangd language server
-require('lspconfig').clangd.setup({
-    on_attach = on_attach,
-    capabilities = capabilities,
-    flags = lsp_flags,
-})
+require('config.language-servers.clangd').setup(lsp_setup_opts)
 
 -- lua_ls language server
-require('config.languages.lua').setup({
-    on_attach = on_attach,
-    capabilities = capabilities,
-    flags = lsp_flags,
-})
+require('config.language-servers.lua_ls').setup(lsp_setup_opts)
 
--- Wrapper for rust-tools which sets up the rust-language-server internally
-require('config.languages.rust').setup({
-    on_attach = on_attach,
-    capabilities = capabilities,
-    flags = lsp_flags,
-})
+-- Wrapper for rust-tools (sets up rust-analyzer internally)
+require('config.language-servers.rust').setup(lsp_setup_opts)
 
 
 
