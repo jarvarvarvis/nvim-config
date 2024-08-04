@@ -11,7 +11,15 @@ require('gitsigns').setup {
         changedelete = { text = '~' },
         untracked    = { text = '┆' },
     },
-    _signs_staged_enable = true, -- Enable the staged signs feature
+    signs_staged = {
+        add          = { text = '┃' },
+        change       = { text = '┃' },
+        delete       = { text = '_' },
+        topdelete    = { text = '‾' },
+        changedelete = { text = '~' },
+        untracked    = { text = '┆' },
+    },
+    signs_staged_enable = true, -- Enable the staged signs feature
 
     sign_priority = 6,
 
@@ -28,6 +36,7 @@ require('gitsigns').setup {
         virt_text_pos = 'eol', -- 'eol' | 'overlay' | 'right_align'
         delay = 1000,
         ignore_whitespace = false,
+        virt_text_priority = 100,
     },
     current_line_blame_formatter = '<author>, <author_time:%Y-%m-%d> - <summary>',
 
@@ -49,11 +58,6 @@ require('gitsigns').setup {
     update_debounce = 100,
     status_formatter = nil,  -- Use default
     max_file_length = 40000, -- Disable if file is longer than this (in lines)
-
-    -- Configure additional integrations
-    yadm = {
-        enable = false
-    },
 }
 
 wk.register({
