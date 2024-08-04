@@ -8,48 +8,30 @@ function M.setup(bufnr)
     -- See ':help vim.lsp.*' for documentation on any of the below functions
     local bufopts = { noremap = true, silent = true, buffer = bufnr }
 
-    wk.register({
+    wk.add({
         -- <space>d is used as a prefix for LSP diagnostic commands
-        ["<space>d"] = {
-            s = {
-                function()
-                    print(vim.inspect(vim.lsp.buf.server_ready()))
-                end,
-                "Check server status"
-            }
-        },
+        { "<space>ds", function() print(vim.inspect(vim.lsp.buf.server_ready())) end, buffer = 3,       desc = "Check server status",   remap = false },
 
         -- <space>g is used as a prefix for LSP information commands
-        ["<space>g"] = {
-            name = "+goto",
-            D = { vim.lsp.buf.declaration, "Goto declaration" },
-            d = { telescope.lsp_definitions, "View definitions" },
-            i = { telescope.lsp_implementations, "View implementations" },
-            r = { telescope.lsp_references, "View references" },
-            T = { telescope.lsp_type_definitions, "View type definitions" },
-            K = { vim.lsp.buf.hover, "Toggle hover" },
-            k = { vim.lsp.buf.signature_help, "Show signature help" },
-        },
-
-        -- <space>a is used as a prefix for code actions
-        ["<space>a"] = {
-            name = "+action",
-            r = { vim.lsp.buf.rename, "Rename" },
-            c = { vim.lsp.buf.code_action, "Code actions" },
-            f = {
-                function()
-                    vim.lsp.buf.format { async = true }
-                end,
-                "Format file"
-            }
-        },
+        { "<space>g",  buffer = 3,                                                    group = "goto",   remap = false },
+        { "<space>gD", vim.lsp.buf.declaration,                                       buffer = 3,       desc = "Goto declaration",      remap = false },
+        { "<space>gK", vim.lsp.buf.hover,                                             buffer = 3,       desc = "Toggle hover",          remap = false },
+        { "<space>gT", telescope.lsp_type_definitions,                                buffer = 3,       desc = "View type definitions", remap = false },
+        { "<space>gd", telescope.lsp_definitions,                                     buffer = 3,       desc = "View definitions",      remap = false },
+        { "<space>gi", telescope.lsp_implementations,                                 buffer = 3,       desc = "View implementations",  remap = false },
+        { "<space>gr", telescope.lsp_references,                                      buffer = 3,       desc = "View references",       remap = false },
+        { "<space>gk", vim.lsp.buf.signature_help,                                    buffer = 3,       desc = "Show signature help",   remap = false },
 
         -- <space>l is used as a prefix for the LSP code lens
-        ["<space>l"] = {
-            name = "+lens",
-            d = { vim.lsp.codelens.refresh, "Refresh" },
-            r = { vim.lsp.codelens.run, "Run" }
-        }
+        { "<space>l",  buffer = 3,                                                    group = "lens",   remap = false },
+        { "<space>ld", vim.lsp.codelens.refresh,                                      buffer = 3,       desc = "Refresh",               remap = false },
+        { "<space>lr", vim.lsp.codelens.run,                                          buffer = 3,       desc = "Run",                   remap = false },
+
+        -- <space>a is used as a prefix for code actions
+        { "<space>a",  buffer = 3,                                                    group = "action", remap = false },
+        { "<space>ac", vim.lsp.buf.code_action,                                       buffer = 3,       desc = "Code actions",          remap = false },
+        { "<space>af", function() vim.lsp.buf.format { async = true } end,            buffer = 3,       desc = "Format file",           remap = false },
+        { "<space>ar", vim.lsp.buf.rename,                                            buffer = 3,       desc = "Rename",                remap = false },
     }, bufopts)
 end
 
