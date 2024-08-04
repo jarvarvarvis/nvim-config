@@ -1,3 +1,6 @@
+local packer_bootstrap = require("config.packer-bootstrap").ensure_packer()
+
+
 return require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
@@ -151,4 +154,10 @@ return require('packer').startup(function(use)
         'romgrk/barbar.nvim',
         requires = { 'kyazdani42/nvim-web-devicons' }
     }
+
+    -- Automatically set up your configuration after cloning packer.nvim
+    -- Put this at the end after all plugins
+    if packer_bootstrap then
+        require('packer').sync()
+    end
 end)
