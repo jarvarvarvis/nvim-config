@@ -5,33 +5,13 @@ local telescope = require('telescope.builtin')
 diaglist.init {}
 
 -- See ':help vim.diagnostic.*' for documentation on any of the below functions
-wk.register({
+wk.add({
     -- <space>d is used as a prefix for diagnostics
-    ["<space>d"] = {
-        name = "+diagnostics",
-        d = {
-            diaglist.open_all_diagnostics,
-            "Open diagnostics"
-        },
-        f = {
-            function()
-                telescope.diagnostics()
-            end,
-            "Find diagnostics"
-        }
-    },
-    ["["] = {
-        name = "+prev",
-        d = {
-            vim.diagnostic.goto_prev,
-            "Previous diagnostic"
-        }
-    },
-    ["]"] = {
-        name = "+next",
-        d = {
-            vim.diagnostic.goto_next,
-            "Next diagnostic"
-        }
-    }
+    { "<space>d",  group = "diagnostics" },
+    { "<space>dd", diaglist.open_all_diagnostics,          desc = "Open diagnostics" },
+    { "<space>df", function() telescope.diagnostics() end, desc = "Find diagnostics" },
+    { "[",         group = "prev" },
+    { "[d",        vim.diagnostic.goto_prev,               desc = "Previous diagnostic" },
+    { "]",         group = "next" },
+    { "]d",        vim.diagnostic.goto_next,               desc = "Next diagnostic" },
 })

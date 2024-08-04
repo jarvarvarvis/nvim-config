@@ -60,59 +60,14 @@ require('gitsigns').setup {
     max_file_length = 40000, -- Disable if file is longer than this (in lines)
 }
 
-wk.register({
-    ["<space>G"] = {
-        name = "+gitsigns",
-
-        s = {
-            function()
-                vim.cmd("Gitsigns stage_hunk")
-            end,
-            "Stage hunk",
-        },
-        r = {
-            function()
-                vim.cmd("Gitsigns reset_hunk")
-            end,
-            "Reset hunk",
-        },
-        u = {
-            function()
-                vim.cmd("Gitsigns undo_stage_hunk")
-            end,
-            "Undo stage hunk",
-        },
-
-        S = {
-            function()
-                vim.cmd("Gitsigns stage_buffer")
-            end,
-            "Stage buffer",
-        },
-        R = {
-            function()
-                vim.cmd("Gitsigns reset_buffer")
-            end,
-            "Reset buffer",
-        },
-        U = {
-            function()
-                vim.cmd("Gitsigns reset_buffer_index")
-            end,
-            "Undo stage buffer",
-        },
-
-        G = {
-            function()
-                vim.cmd("Git")
-            end,
-            "Vim fugitive"
-        },
-        l = {
-            function()
-                vim.cmd("Git log --decorate")
-            end,
-            "Show git log"
-        }
-    }
+wk.add({
+    { "<space>G",  group = "gitsigns" },
+    { "<space>GG", function() vim.cmd("Git") end,                         desc = "Vim fugitive" },
+    { "<space>GR", function() vim.cmd("Gitsigns reset_buffer") end,       desc = "Reset buffer" },
+    { "<space>GS", function() vim.cmd("Gitsigns stage_buffer") end,       desc = "Stage buffer" },
+    { "<space>GU", function() vim.cmd("Gitsigns reset_buffer_index") end, desc = "Undo stage buffer" },
+    { "<space>Gl", function() vim.cmd("Git log --decorate") end,          desc = "Show git log" },
+    { "<space>Gr", function() vim.cmd("Gitsigns reset_hunk") end,         desc = "Reset hunk" },
+    { "<space>Gs", function() vim.cmd("Gitsigns stage_hunk") end,         desc = "Stage hunk" },
+    { "<space>Gu", function() vim.cmd("Gitsigns undo_stage_hunk") end,    desc = "Undo stage hunk" },
 })

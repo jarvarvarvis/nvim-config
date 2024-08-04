@@ -1,26 +1,10 @@
 local wk = require('which-key')
 local builtin = require('telescope.builtin')
 
-wk.register({
-    ["<space>"] = {
-        f = {
-            name = "+find",
-            f = {
-                builtin.find_files,
-                "Find files"
-            },
-            b = {
-                builtin.buffers,
-                "Find buffers"
-            },
-            r = {
-                builtin.oldfiles,
-                "Recent files"
-            },
-            g = {
-                builtin.live_grep,
-                "Live Grep"
-            },
-        }
-    },
+wk.add({
+    { "<space>f",  group = "find" },
+    { "<space>fb", builtin.find_files, desc = "Find buffers" },
+    { "<space>ff", builtin.buffers,    desc = "Find files" },
+    { "<space>fg", builtin.oldfiles,   desc = "Live Grep" },
+    { "<space>fr", builtin.live_grep,  desc = "Recent files" },
 })

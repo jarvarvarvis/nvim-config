@@ -22,14 +22,7 @@ require("neo-tree").setup {
     }
 }
 
-wk.register({
-    ["<space>"] = {
-        t = {
-            name = "+neo-tree",
-            t = {
-                function() vim.cmd('Neotree toggle') end,
-                "Toggle NeoTree"
-            },
-        }
-    }
+wk.add({
+    { "<space>t", group = "neo-tree" },
+    { "<space>tt", function() vim.cmd('Neotree toggle') end, desc = "Toggle NeoTree" },
 })

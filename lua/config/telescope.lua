@@ -9,15 +9,7 @@ require('telescope').setup {
     }
 }
 
-wk.register({
-    ["<space>"] = {
-        -- Spelling
-        a = {
-            name = "+action",
-            s = {
-                telescope.spell_suggest,
-                "Spelling suggestions"
-            }
-        }
-    }
+wk.add({
+    { "<space>a",  group = "action" },
+    { "<space>as", telescope.spell_suggest, desc = "Spelling suggestions" },
 })

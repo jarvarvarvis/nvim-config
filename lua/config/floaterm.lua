@@ -7,13 +7,6 @@ vim.g.floaterm_winblend = 0
 local borders = require("config.borders")
 vim.g.floaterm_borderchars = borders.border_character_string
 
-wk.register({
-    ["<space>"] = {
-        T = {
-            function()
-                vim.cmd("FloatermToggle")
-            end,
-            "Open floaterm"
-        }
-    }
+wk.add({
+    { "<space>T", function() vim.cmd("FloatermToggle") end, desc = "Open floaterm" },
 })
