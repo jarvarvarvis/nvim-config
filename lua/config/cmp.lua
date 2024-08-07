@@ -92,12 +92,12 @@ cmp.setup({
             end,
         }),
     }),
-    sources = cmp.config.sources({
+    sources = cmp.config.sources(
         { name = 'nvim_lsp' },
-        { name = 'luasnip' }, -- For luasnip users.
-    }, {
+        { name = 'luasnip' },
         { name = 'buffer' },
-    }),
+        { name = 'path' }
+    ),
     formatting = {
         format = function(entry, vim_item)
             -- This concatenates the icons with the name of the item kind
