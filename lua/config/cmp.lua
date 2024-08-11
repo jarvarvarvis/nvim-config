@@ -92,12 +92,12 @@ cmp.setup({
             end,
         }),
     }),
-    sources = cmp.config.sources(
+    sources = cmp.config.sources({
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
         { name = 'buffer' },
         { name = 'path' }
-    ),
+    }),
     formatting = {
         format = function(entry, vim_item)
             -- This concatenates the icons with the name of the item kind
@@ -130,5 +130,6 @@ cmp.setup.cmdline(':', {
         { name = 'path' }
     }, {
         { name = 'cmdline' }
-    })
+    }),
+    matching = { disallow_symbol_nonprefix_matching = false }
 })

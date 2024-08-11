@@ -3,16 +3,20 @@ local M = {}
 function M.setup(opts)
     local settings = {
         Lua = {
-            runtime = { version = "LuaJIT" },
+            runtime = {
+                version = "LuaJIT",
+                path = vim.split(package.path, ";"),
+            },
             diagnostics = {
                 globals = { "vim" }
             },
             workspace = {
                 checkThirdParty = false,
-                library = {
-                    vim.env.VIMRUNTIME
-                }
-            }
+                library = { vim.env.VIMRUNTIME }
+            },
+            telemetry = {
+                enable = false,
+            },
         }
     }
 
