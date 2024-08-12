@@ -20,7 +20,3 @@ require('nvim-treesitter.configs').setup {
         max_file_lines = nil,
     }
 }
-
--- Treesitter folding
-vim.wo.foldmethod = 'expr'
-vim.wo.foldexpr = 'nvim_treesitter#foldexpr()'
