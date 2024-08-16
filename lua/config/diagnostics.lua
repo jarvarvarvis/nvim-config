@@ -10,6 +10,7 @@ wk.add({
     { "<space>d",  group = "diagnostics" },
     { "<space>dd", diaglist.open_all_diagnostics,          desc = "Open diagnostics" },
     { "<space>df", function() telescope.diagnostics() end, desc = "Find diagnostics" },
+    { "<space>dh", vim.diagnostic.open_float,              desc = "Show diagnostics in a floating window" },
     { "[",         group = "prev" },
     { "[d",        vim.diagnostic.goto_prev,               desc = "Previous diagnostic" },
     { "]",         group = "next" },
