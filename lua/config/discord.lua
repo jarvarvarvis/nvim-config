@@ -1,5 +1,5 @@
--- The setup config table shows all available config options with their default values:
-require("presence").setup({
+local presence = require("presence")
+presence.setup({
     -- General options
     -- Update activity based on autocmd events (if `false`,
     -- map or manually execute `:lua package.loaded.presence:update()`)
@@ -70,4 +70,14 @@ require("presence").setup({
     -- Format string rendered when `enable_line_number` is set to true
     -- (either string or function(line_number: number, line_count: number): string)
     line_number_text = "Line %s out of %s",
+})
+
+local wk = require("which-key")
+
+wk.add({
+    { "<space>p",  group = "presence.nvim" },
+    { "<space>ps", function()
+        presence:stop()
+        print("Stopped presence.nvim")
+    end, desc = "Stop presence.nvim" }
 })
