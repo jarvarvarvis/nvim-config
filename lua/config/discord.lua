@@ -75,8 +75,8 @@ presence.setup({
 local wk = require("which-key")
 
 wk.add({
-    { "<space>p",  group = "presence.nvim" },
-    { "<space>ps", function()
+    { "<space>P",  group = "presence.nvim" },
+    { "<space>PS", function()
         presence:stop()
         print("Stopped presence.nvim")
     end, desc = "Stop presence.nvim" }
