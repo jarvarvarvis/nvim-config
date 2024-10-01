@@ -27,6 +27,9 @@ require('config.language-servers.clangd').setup(lsp_setup_opts)
 -- lua_ls language server
 require('config.language-servers.lua_ls').setup(lsp_setup_opts)
 
+-- zls language server
+require('config.language-servers.zls').setup(lsp_setup_opts)
+
 -- Wrapper for rust-tools (sets up rust-analyzer internally)
 require('config.language-servers.rust').setup(lsp_setup_opts)
 
