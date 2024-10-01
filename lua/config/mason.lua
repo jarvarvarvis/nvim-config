@@ -15,5 +15,6 @@ require('mason-lspconfig').setup {
         "clangd",
         "lua_ls",
         "rust_analyzer",
+        "zls"
     }
 }
