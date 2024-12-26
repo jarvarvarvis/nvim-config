@@ -144,6 +144,7 @@ return require('packer').startup(function(use)
             'MunifTanjim/nui.nvim',
         }
     }
+
     -- Improved vim.ui interface
     use 'stevearc/dressing.nvim'
 
