@@ -58,12 +58,11 @@ lua << EOF
     require('config.text')             -- load config related to text manipulation
 
     -- Programming languages
+    require('config.programming')      -- load programming language configurations (initialization)
     require('config.diagnostics')      -- load diagnostics related plugin configuration
     require('config.treesitter')       -- load treesitter configuration
-    require('config.lsp')              -- load LSP configuration
     require('config.snippets')         -- load snippet configuration (LuaSnip)
     require('config.cmp')              -- load cmp configuration after LSP
-    require('config.mason')            -- load mason configuration
 
     -- Version Control
     require('config.version-control')  -- load configuration of version control plugins

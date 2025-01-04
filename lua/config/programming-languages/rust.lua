@@ -9,7 +9,7 @@ function M.setup(opts)
 
     require('rust-tools').setup({
         tools = tools,
-        server = opts
+        server = opts.lsp_opts
     })
 end
 
