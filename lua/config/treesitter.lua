@@ -1,5 +1,7 @@
 require('nvim-treesitter.configs').setup {
     ensure_installed = {
+        "json",
+        "json5",
         "markdown",
         "markdown_inline",
         "glsl",
