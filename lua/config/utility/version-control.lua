@@ -1,23 +1,23 @@
-local borders = require("config.borders")
-local wk = require('which-key')
+local borders = require("config.utility.borders")
+local wk = require("which-key")
 
-require('gitsigns').setup {
+require("gitsigns").setup {
     -- Configure signs
     signs = {
-        add          = { text = '│' },
-        change       = { text = '│' },
-        delete       = { text = '_' },
-        topdelete    = { text = '‾' },
-        changedelete = { text = '~' },
-        untracked    = { text = '┆' },
+        add          = { text = "│" },
+        change       = { text = "│" },
+        delete       = { text = "_" },
+        topdelete    = { text = "‾" },
+        changedelete = { text = "~" },
+        untracked    = { text = "┆" },
     },
     signs_staged = {
-        add          = { text = '┃' },
-        change       = { text = '┃' },
-        delete       = { text = '_' },
-        topdelete    = { text = '‾' },
-        changedelete = { text = '~' },
-        untracked    = { text = '┆' },
+        add          = { text = "┃" },
+        change       = { text = "┃" },
+        delete       = { text = "_" },
+        topdelete    = { text = "‾" },
+        changedelete = { text = "~" },
+        untracked    = { text = "┆" },
     },
     signs_staged_enable = true, -- Enable the staged signs feature
 
@@ -33,19 +33,19 @@ require('gitsigns').setup {
     current_line_blame = false, -- Toggle with `:Gitsigns toggle_current_line_blame`
     current_line_blame_opts = {
         virt_text = true,
-        virt_text_pos = 'eol', -- 'eol' | 'overlay' | 'right_align'
+        virt_text_pos = "eol", -- "eol" | "overlay" | "right_align"
         delay = 1000,
         ignore_whitespace = false,
         virt_text_priority = 100,
     },
-    current_line_blame_formatter = '<author>, <author_time:%Y-%m-%d> - <summary>',
+    current_line_blame_formatter = "<author>, <author_time:%Y-%m-%d> - <summary>",
 
     -- Configure preview
     preview_config = {
         -- Options passed to nvim_open_win
-        border = borders.border,
-        style = 'minimal',
-        relative = 'cursor',
+        border = borders.table_clockwise_from_top_left,
+        style = "minimal",
+        relative = "cursor",
         row = 0,
         col = 1
     },

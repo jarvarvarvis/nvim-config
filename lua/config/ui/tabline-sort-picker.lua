@@ -1,10 +1,10 @@
-local pickers = require('telescope.pickers')
-local finders = require('telescope.finders')
-local conf = require('telescope.config').values
-local dropdown = require('telescope.themes').get_dropdown {}
+local pickers = require("telescope.pickers")
+local finders = require("telescope.finders")
+local conf = require("telescope.config").values
+local dropdown = require("telescope.themes").get_dropdown {}
 
-local actions = require('telescope.actions')
-local action_state = require('telescope.actions.state')
+local actions = require("telescope.actions")
+local action_state = require("telescope.actions.state")
 
 local pick_tabline_sort_mode = function(opts)
     -- Get arguments

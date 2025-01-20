@@ -1,11 +1,11 @@
-local wk = require('which-key')
-local telescope = require('telescope.builtin')
+local wk = require("which-key")
+local telescope = require("telescope.builtin")
 
 local M = {}
 
 function M.setup(bufnr)
     -- Mappings
-    -- See ':help vim.lsp.*' for documentation on any of the below functions
+    -- See ":help vim.lsp.*" for documentation on any of the below functions
     local bufopts = { noremap = true, silent = true, buffer = bufnr }
 
     wk.add({

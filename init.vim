@@ -31,42 +31,15 @@ syntax on                       " Always enable syntax highlighting
 filetype plugin on
 
 lua << EOF
-    if vim.g.neovide then
-        require('config.neovide')      -- load neovide configuration if neovim was started inside neovide
-    end
+    -- Install plugins first
+    require("config.plugins")
 
-    require('config.plugins')          -- load plugin configuration
+    -- Configure utility
+    require("config.utility")
 
-    ---- Appearance
-    require('config.appearance')       -- load appearance configuration
+    -- Configure user interface
+    require("config.ui")
 
-    ---- Functionality
-    -- Keybinds
-    require('config.which-key')        -- load which-key configuration first to register mappings for every other plugin
-
-    -- Windows, Bars etc.
-    require('config.telescope')        -- load telescope configuration
-    require('config.floaterm')         -- load floaterm configuration
-    require('config.file-manager')     -- load file manager configuration
-    require('config.tabline')          -- load tabline-related configuration
-    require('config.statusline')       -- load galaxybar configuration
-    require('config.window')           -- load config related to window manipulation
-
-    -- Text and files
-    require('config.filetypes')        -- load configuration for filetype detections
-    require('config.find')             -- load configuration related to finding stuff
-    require('config.text')             -- load config related to text manipulation
-
-    -- Programming languages
-    require('config.programming')      -- load programming language configurations (initialization)
-    require('config.diagnostics')      -- load diagnostics related plugin configuration
-    require('config.treesitter')       -- load treesitter configuration
-    require('config.snippets')         -- load snippet configuration (LuaSnip)
-    require('config.cmp')              -- load cmp configuration after LSP
-
-    -- Version Control
-    require('config.version-control')  -- load configuration of version control plugins
-
-    -- Discord
-    require('config.discord')          -- load presence.nvim configuration
+    -- Configure programming-related functionality
+    require("config.programming")
 EOF

@@ -18,6 +18,9 @@ vim.g.neovide_scroll_animation_length = 0.1
 vim.g.neovide_scale_factor = 0.8
 local opts = { silent = true }
 
-vim.api.nvim_set_keymap("n", "<C-*>", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1<CR>", opts)
-vim.api.nvim_set_keymap("n", "<C-_>", ":lua vim.g.neovide_scale_factor = math.max(vim.g.neovide_scale_factor - 0.1,  0.1)<CR>", opts)
-vim.api.nvim_set_keymap("n", "<C-0>", ":lua vim.g.neovide_scale_factor = 0.8<CR>", opts)
+vim.api.nvim_set_keymap("n", "<C-*>",
+    ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1<CR>", opts)
+vim.api.nvim_set_keymap("n", "<C-_>",
+    ":lua vim.g.neovide_scale_factor = math.max(vim.g.neovide_scale_factor - 0.1,  0.1)<CR>", opts)
+vim.api.nvim_set_keymap("n", "<C-0>",
+    ":lua vim.g.neovide_scale_factor = 0.8<CR>", opts)

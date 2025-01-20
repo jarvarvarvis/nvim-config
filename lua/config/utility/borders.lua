@@ -1,3 +1,4 @@
+---@diagnostic disable-next-line: unused-local
 local rounded_corner_borders = {
     { "╭", "FloatBorder" }, -- top left
     { "─", "FloatBorder" }, -- top
@@ -9,6 +10,7 @@ local rounded_corner_borders = {
     { "│", "FloatBorder" }, -- left
 }
 
+---@diagnostic disable-next-line: unused-local
 local corner_borders = {
     { "┌", "FloatBorder" }, -- top left
     { "─", "FloatBorder" }, -- top
@@ -20,24 +22,15 @@ local corner_borders = {
     { "│", "FloatBorder" }, -- left
 }
 
-local function unpack_nvim_api_borders(borders)
-    local ordered_border_indices = {
-        2, -- top
-        4, -- right
-        6, -- bottom
-        8, -- left
-        1, -- top left
-        3, -- top right
-        5, -- bottom right
-        7  -- bottom left
-    }
+local M = {}
 
+function M.reorder_and_unpack_borders(borders, indices)
     -- Iterate indices and concatenate the border characters +
     -- insert them into a table
     local result_string = ""
     local result_table = {}
 
-    for _, index in pairs(ordered_border_indices) do
+    for _, index in pairs(indices) do
         local border = borders[index]
         result_string = result_string .. border[1] -- Add character to the result string
         table.insert(result_table, border[1])      -- Insert character into table
@@ -49,11 +42,21 @@ local function unpack_nvim_api_borders(borders)
     }
 end
 
-local M = {}
-M.border = rounded_corner_borders
+M.table_clockwise_from_top_left = rounded_corner_borders
 
-local unrolled = unpack_nvim_api_borders(M.border)
-M.border_character_string = unrolled[1]
-M.border_character_table = unrolled[2]
+local cardinals_first_corners_second_indices = {
+    2, -- top
+    4, -- right
+    6, -- bottom
+    8, -- left
+    1, -- top left
+    3, -- top right
+    5, -- bottom right
+    7  -- bottom left
+}
+local reorder_unpack_result = M.reorder_and_unpack_borders(M.table_clockwise_from_top_left,
+    cardinals_first_corners_second_indices)
+M.string_cardinals_first_corners_second = reorder_unpack_result[1]
+M.table_cardinals_first_corners_second = reorder_unpack_result[2]
 
 return M

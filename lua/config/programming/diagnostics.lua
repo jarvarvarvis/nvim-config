@@ -1,10 +1,10 @@
-local diaglist = require('diaglist')
-local wk = require('which-key')
-local telescope = require('telescope.builtin')
+local diaglist = require("diaglist")
+local wk = require("which-key")
+local telescope = require("telescope.builtin")
 
 diaglist.init {}
 
--- See ':help vim.diagnostic.*' for documentation on any of the below functions
+-- See ":help vim.diagnostic.*" for documentation on any of the below functions
 wk.add({
     -- <space>d is used as a prefix for diagnostics
     { "<space>d",  group = "diagnostics" },

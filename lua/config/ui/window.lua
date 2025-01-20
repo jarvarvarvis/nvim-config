@@ -1,61 +1,36 @@
--- Configure windows.nvim
-vim.o.winwidth = 10
-vim.o.winminwidth = 10
-vim.o.equalalways = false
-
-require('windows').setup {
-    autowidth = {
-        enable = true,
-        minwidth = 10,
-        filetype = {}
-    },
-    ignore = {
-        buftype = { "quickfix" },
-        filetype = { "NvimTree", "neo-tree" }
-    },
-}
-
-local wk = require('which-key')
-
-wk.add({
-
-    { "<C-w>=", function() vim.cmd('WindowsMaximize') end,             desc = "Equalize windows" },
-    { "<C-w>_", function() vim.cmd('WindowsMaximizeVertically') end,   desc = "Maximize window vertically" },
-    { "<C-w>z", function() vim.cmd('WindowsMaximizeHorizontally') end, desc = "Maximize window" },
-    { "<C-w>|", function() vim.cmd('WindowsEqualize') end,             desc = "Maximize window horizontally" },
-})
+local wk = require("which-key")
 
 -- Configure nvim-window-picker
-local window_picker = require('window-picker')
+local window_picker = require("window-picker")
 
 window_picker.setup {
     -- type of hints you want to get
     -- following types are supported
-    -- 'statusline-winbar' | 'floating-big-letter'
-    -- 'statusline-winbar' draw on 'statusline' if possible, if not 'winbar' will be
-    -- 'floating-big-letter' draw big letter on a floating window
+    -- "statusline-winbar" | "floating-big-letter"
+    -- "statusline-winbar" draw on "statusline" if possible, if not "winbar" will be
+    -- "floating-big-letter" draw big letter on a floating window
     -- used
-    hint = 'floating-big-letter',
+    hint = "floating-big-letter",
 
     -- when you go to window selection mode, status bar will show one of
     -- following letters on them so you can use that letter to select the window
-    selection_chars = 'ZUIOHJKLBNM;',
+    selection_chars = "ZUIOHJKLBNM;",
 
     -- This section contains picker specific configurations
     picker_config = {
         statusline_winbar_picker = {
             -- You can change the display string in status bar.
-            -- It supports '%' printf style. Such as `return char .. ': %f'` to display
-            -- buffer file path. See :h 'stl' for details.
+            -- It supports "%" printf style. Such as `return char .. ": %f"` to display
+            -- buffer file path. See :h "stl" for details.
             selection_display = function(char, _)
-                return '%=' .. char .. '%='
+                return "%=" .. char .. "%="
             end,
 
             -- whether you want to use winbar instead of the statusline
             -- "always" means to always use winbar,
             -- "never" means to never use winbar
             -- "smart" means to use winbar if cmdheight=0 and statusline if cmdheight > 0
-            use_winbar = 'smart', -- "always" | "never" | "smart"
+            use_winbar = "smart", -- "always" | "never" | "smart"
         },
 
         floating_big_letter = {
@@ -64,15 +39,15 @@ window_picker.setup {
             -- additionally, user can pass in a table of fonts in to font
             -- property to use instead
 
-            font = require('config.window-picker-font'),
+            font = require("config.ui.window-picker-font"),
         },
     },
 
-    -- whether to show 'Pick window:' prompt
+    -- whether to show "Pick window:" prompt
     show_prompt = true,
 
     -- prompt message to show to get the user input
-    prompt_message = 'Pick window: ',
+    prompt_message = "Pick window: ",
 
     -- if you want to manually filter out the windows, pass in a function that
     -- takes two parameters. You should return window ids that should be
@@ -100,10 +75,10 @@ window_picker.setup {
         -- filter using buffer options
         bo = {
             -- if the file type is one of following, the window will be ignored
-            filetype = { 'notify' },
+            filetype = { "notify" },
 
             -- if the file type is one of following, the window will be ignored
-            buftype = { 'terminal' },
+            buftype = { "terminal" },
         },
 
         -- filter using window options
@@ -123,25 +98,25 @@ window_picker.setup {
     highlights = {
         statusline = {
             focused = {
-                fg = '#ededed',
-                bg = '#e35e4f',
+                fg = "#ededed",
+                bg = "#e35e4f",
                 bold = true,
             },
             unfocused = {
-                fg = '#ededed',
-                bg = '#44cc41',
+                fg = "#ededed",
+                bg = "#44cc41",
                 bold = true,
             },
         },
         winbar = {
             focused = {
-                fg = '#ededed',
-                bg = '#e35e4f',
+                fg = "#ededed",
+                bg = "#e35e4f",
                 bold = true,
             },
             unfocused = {
-                fg = '#ededed',
-                bg = '#44cc41',
+                fg = "#ededed",
+                bg = "#44cc41",
                 bold = true,
             },
         },
