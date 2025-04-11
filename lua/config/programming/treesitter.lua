@@ -33,7 +33,8 @@ require("nvim-treesitter.configs").setup {
         "lua",
         "rust",
         "python",
-        "c3"
+        "c3",
+        "latex",
     },
     auto_install = true,
     highlight = {
