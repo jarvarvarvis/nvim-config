@@ -20,12 +20,12 @@ function M.setup(opts)
         }
     }
 
-    require("lspconfig").lua_ls.setup({
+    require("lspconfig").lua_ls.setup {
         on_attach = opts.on_attach,
         capabilities = opts.capabilities,
         settings = settings,
         flags = opts.flags
-    })
+    }
 end
 
 return M

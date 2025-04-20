@@ -35,6 +35,7 @@ require("nvim-treesitter.configs").setup {
         "python",
         "c3",
         "latex",
+        "typst",
     },
     auto_install = true,
     highlight = {

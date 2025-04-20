@@ -15,6 +15,7 @@ require("mason-lspconfig").setup {
         "clangd",
         "lua_ls",
         "rust_analyzer",
+        "tinymist"
     }
 }
 
@@ -37,7 +38,8 @@ local lsp_setup_opts = {
 
 require("config.programming.language-servers.clangd").setup(lsp_setup_opts)
 require("config.programming.language-servers.lua_ls").setup(lsp_setup_opts)
-require("config.programming.language-servers.rust").setup({ lsp_opts = lsp_setup_opts })
+require("config.programming.language-servers.tinymist").setup(lsp_setup_opts)
+require("config.programming.language-servers.rust").setup { lsp_opts = lsp_setup_opts }
 
 -- Set up LSP UI configuration
 require("config.programming.lsp-ui").setup()
